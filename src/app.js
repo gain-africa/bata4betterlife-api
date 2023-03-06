@@ -5,7 +5,6 @@ const { errorHandler } = require("./middlewares/errorHandler");
 const { limiter } = require("./middlewares/limiter");
 
 // routes
-const mail = require("./routes/mail.routes");
 const contact = require("./routes/contact.routes");
 const volunteer = require("./routes/volunteer.routes");
 
@@ -22,7 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(limiter);
 
-app.use("/api/v0/send-email", mail);
 app.use("/api/v0/contact", contact);
 app.use("/api/v0/volunteer", volunteer);
 

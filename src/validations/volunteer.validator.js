@@ -13,10 +13,7 @@ const volunteerAddSchema = Joi.object({
 });
 
 async function addVolunteerValidationMW(req, res, next) {
-  console.log(req.body);
-  // console.log(JSON.parse(req.body));
   const volunteerPayLoad = req.body;
-  // console.log(volunteerPayLoad);
 
   try {
     await volunteerAddSchema.validateAsync(volunteerPayLoad);

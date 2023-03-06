@@ -52,8 +52,7 @@ const createContact = async (req, res, next) => {
 
     return res.status(201).json({
       status: true,
-      message: "Contact created successfully",
-      data: contact,
+      message: "Contact form submitted successfully",
     });
   } catch (err) {
     err.source = "create contact conroller";

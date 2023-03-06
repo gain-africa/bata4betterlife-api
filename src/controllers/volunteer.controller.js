@@ -57,8 +57,7 @@ const createVolunteer = async (req, res, next) => {
 
     return res.status(201).json({
       status: true,
-      message: "Volunteer created successfully",
-      data: volunteer,
+      message: "Volunteer form submitted successfully",
     });
   } catch (err) {
     err.source = "create volunteers controller";
