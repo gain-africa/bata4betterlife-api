@@ -19,7 +19,10 @@ async function addContactValidationMW(req, res, next) {
     next();
   } catch (err) {
     err.source = "add contact validation middleware";
-    next(err.details[0].message);
+    next({
+      status: 400,
+      message: err.details[0].message,
+    });
   }
 }
 

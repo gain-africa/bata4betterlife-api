@@ -18,7 +18,21 @@ const getAllContacts = async (req, res, next) => {
 const getAContact = async (req, res, next) => {
   try {
     const { id } = req.params;
+    if (id.length !== 24) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid id",
+      });
+    }
+
     const contact = await Contact.findById(id);
+
+    if (!contact) {
+      return res.status(404).json({
+        status: false,
+        message: "Contact not found",
+      });
+    }
 
     return res.json({
       status: true,

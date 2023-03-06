@@ -8,9 +8,10 @@ const {
 const {
   addVolunteerValidationMW,
 } = require("../validations/volunteer.validator");
+const { authenticateUser } = require("../authentication/auth");
 
-router.get("/", getAllVolunteers);
-router.get("/:id", getAVolunteer);
-router.post("/", addVolunteerValidationMW, createVolunteer);
+router.get("/", authenticateUser, getAllVolunteers);
+router.get("/:id", authenticateUser, getAVolunteer);
+router.post("/", createVolunteer);
 
 module.exports = router;

@@ -1,4 +1,5 @@
-const Volunteer = require("../models/volunteers.model");
+const Volunteer = require("../models/volunteer.model");
+const { splittingSkills } = require("../utils/skills");
 
 // get all published blogs
 const getAllVolunteers = async (req, res, next) => {
@@ -18,7 +19,21 @@ const getAllVolunteers = async (req, res, next) => {
 const getAVolunteer = async (req, res, next) => {
   try {
     const { id } = req.params;
+    if (id.length !== 24) {
+      return res.status(400).json({
+        status: false,
+        message: "Invalid id",
+      });
+    }
+
     const volunteer = await Volunteer.findById(id);
+
+    if (!volunteer) {
+      return res.status(404).json({
+        status: false,
+        message: "Volunteer not found",
+      });
+    }
 
     return res.json({
       status: true,
@@ -33,6 +48,10 @@ const getAVolunteer = async (req, res, next) => {
 // create a volunteer detail
 const createVolunteer = async (req, res, next) => {
   try {
+    // split skills
+    const skills = splittingSkills(req.body.skills);
+    req.body.skills = skills;
+
     // create a new volunteer
     const volunteer = await Volunteer.create(req.body);
 
@@ -42,7 +61,7 @@ const createVolunteer = async (req, res, next) => {
       data: volunteer,
     });
   } catch (err) {
-    err.source = "create volunteers conroller";
+    err.source = "create volunteers controller";
     next(err);
   }
 };
