@@ -4,7 +4,7 @@ const {
   createContact,
   getAContact,
   getAllContacts,
-} = require("../controllers/Contact.controller");
+} = require("../controllers/contact.controller");
 const { addContactValidationMW } = require("../validations/Contact.validator");
 const { authenticateUser } = require("../authentication/auth");
 const { sendContactMail } = require("../services/mail.services");
