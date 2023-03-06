@@ -3,7 +3,7 @@
     "name": "bata4betterlifeapi",
     "builds": [
         {
-            "src": "src/index.js",
+            "src": "/src/index.js",
             "use": "@vercel/node"
         }
     ],
