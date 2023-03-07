@@ -53,7 +53,7 @@ const sendContactMail = async (req, res, next) => {
 
 const sendVolunteerMail = async (req, res, next) => {
   try {
-    const { name, email, phoneNo, skills, involved } = req.body;
+    const { name, email, phoneNo, skills, interest } = req.body;
 
     // Set up the nodemailer transport
     const transporter = nodemailer.createTransport({
@@ -78,7 +78,7 @@ const sendVolunteerMail = async (req, res, next) => {
         My phone number is ${phoneNo}. <br />
         My email address is ${email}. <br />
         I'm skilled in ${skills}. <br />
-        I would like to be involved in the area of ${involved}. 
+        I would like to be involved in the area of ${interest}. 
       </p>
     </div>`,
     };

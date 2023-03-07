@@ -4,7 +4,7 @@ const volunteerAddSchema = Joi.object({
   name: Joi.string().max(255).required().trim(),
   phoneNo: Joi.string().required(),
   skills: Joi.string().required().trim(),
-  involved: Joi.string().required().trim(),
+  interest: Joi.string().required().trim(),
   email: Joi.string()
     .max(255)
     .required()

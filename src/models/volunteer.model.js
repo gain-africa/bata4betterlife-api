@@ -18,7 +18,7 @@ const VolunteerSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    involved: {
+    interest: {
       type: String,
       required: true,
     },
