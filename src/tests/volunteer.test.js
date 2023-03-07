@@ -12,7 +12,7 @@ describe("Blog Route", () => {
     phoneNo: "08012212332",
     email: "beans@example.com",
     skills: "HTML, CSS, JS",
-    involved: "I would like to be involved in financial support",
+    interest: "I would like to be involved in financial support",
   };
 
   beforeAll(() => connect());
@@ -47,7 +47,7 @@ describe("Blog Route", () => {
     expect(response.body.data).toHaveProperty("name");
     expect(response.body.data).toHaveProperty("email");
     expect(response.body.data).toHaveProperty("skills");
-    expect(response.body.data).toHaveProperty("involved");
+    expect(response.body.data).toHaveProperty("interest");
     expect(response.body.data).toHaveProperty("phoneNo");
   });
 
