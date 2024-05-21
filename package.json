@@ -20,7 +20,7 @@
     "joi": "^17.8.3",
     "limiter": "^2.1.0",
     "mongoose": "^7.3.3",
-    "nodemailer": "^6.9.1"
+    "nodemailer": "^6.9.9"
   },
   "devDependencies": {
     "jest": "^29.4.3",
